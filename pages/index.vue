@@ -61,7 +61,7 @@ const changeMap = (year) => {
       <LineChart :data="lineData" class="w-1/2"/>
       <BarChart :data="chartData" class="w-1/2"/>
     </div>
-    <div class="h-96 flex justify-center">
+    <div class="h-screen flex justify-center">
       <Map2022 class="h-[300px]" v-show="currentMap === 2022"/>
       <Map2021 v-show="currentMap === 2021"/>
       <Map2020 v-show="currentMap === 2020"/>
@@ -75,7 +75,11 @@ const changeMap = (year) => {
       </div>
 
     </div>
+    <div class="w-1/2 m-auto mt-4">
+      <ProgressLine title="Tendance du prix du kw/h en centimes" :data="progressLineData"/>
+    </div>
   </div>
+
 </template>
 
 <style scoped>

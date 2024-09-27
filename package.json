@@ -10,11 +10,13 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "apexcharts": "^3.53.0",
     "chart.js": "^4.4.4",
     "nuxt": "^3.13.0",
     "vue": "latest",
     "vue-chartjs": "^5.3.1",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "vue3-apexcharts": "^1.6.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
