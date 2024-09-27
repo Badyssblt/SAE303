@@ -1,18 +1,29 @@
 <script setup>
-import { ref } from 'vue';
-import { Line } from 'vue-chartjs';
-import { Chart as ChartJS, Title, Tooltip, Legend, LineElement, PointElement, CategoryScale, LinearScale } from 'chart.js';
+import {ref} from 'vue';
+import {Line} from 'vue-chartjs';
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  LineElement,
+  PointElement,
+  CategoryScale,
+  LinearScale
+} from 'chart.js';
 
 ChartJS.register(Title, Tooltip, Legend, LineElement, PointElement, CategoryScale, LinearScale);
 
 const props = defineProps({
   data: {
-    type: Object
+    type: Object,
+    required: true
   }
-})
+});
 
 const chartOptions = ref({
   responsive: true,
+  maintainAspectRatio: false,
   plugins: {
     legend: {
       display: true,
@@ -22,11 +33,13 @@ const chartOptions = ref({
 </script>
 
 <template>
-  <Line
-      id="my-line-chart"
-      :options="chartOptions"
-      :data="props.data"
-  />
+  <div>
+    <Line
+        id="line_chart"
+        :options="chartOptions"
+        :data="props.data"
+    />
+  </div>
 </template>
 
 <style scoped>

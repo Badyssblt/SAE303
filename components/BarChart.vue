@@ -14,6 +14,11 @@ ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
 const chartOptions = ref({
   responsive: true,
+  maintainAspectRatio: false,
+  animation: {
+    duration: 1000,
+    easing: 'easeOutBounce',
+  },
   plugins: {
     legend: {
       display: true,
@@ -23,11 +28,14 @@ const chartOptions = ref({
 </script>
 
 <template>
-  <Bar
-      id="my-chart-id"
-      :options="chartOptions"
-      :data="props.data"
-  />
+  <div>
+    <Bar
+        id="bar_chart"
+        :options="chartOptions"
+        :data="props.data"
+    />
+  </div>
+
 </template>
 
 
