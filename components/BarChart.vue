@@ -16,7 +16,7 @@ const chartOptions = ref({
   responsive: true,
   maintainAspectRatio: false,
   animation: {
-    duration: 1000,
+    duration: 3000,
     easing: 'easeOutBounce',
   },
   plugins: {

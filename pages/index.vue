@@ -58,13 +58,13 @@ const changeMap = (year) => {
       <p class="text-xl text-center my-24">Vous le savez, la guerre en Ukraine a eu énormement de conséquence dans le monde. Mais nous allons nous concentrer uniquement sur l'énergie en France, en montrant la consommation annuelle, avant, la guerre, puis pendant la guerre.</p>
     </div>
     <div class="flex h-96">
-      <LineChart :data="lineData" class="w-1/2"/>
-      <BarChart :data="chartData" class="w-1/2"/>
+      <LineChart :data="lineData" class="w-1/2" v-motion-slide-visible-once-left/>
+      <BarChart :data="chartData" class="w-1/2" v-motion-slide-visible-once-right/>
     </div>
     <div class="h-screen flex justify-center">
-      <Map2022 class="h-[300px]" v-show="currentMap === 2022"/>
-      <Map2021 v-show="currentMap === 2021"/>
-      <Map2020 v-show="currentMap === 2020"/>
+      <Map2022 class="h-[300px]" v-show="currentMap === 2022" v-motion-slide-visible-once-right/>
+      <Map2021 v-show="currentMap === 2021" v-motion-slide-visible-once-right/>
+      <Map2020 v-show="currentMap === 2020" v-motion-slide-visible-once-right/>
       <div class="mt-8">
         <p>Changer d'année</p>
         <div class="flex flex-wrap gap-4">
@@ -75,7 +75,7 @@ const changeMap = (year) => {
       </div>
 
     </div>
-    <div class="w-1/2 m-auto mt-4">
+    <div class="w-1/2 m-auto mt-4" v-motion-slide-visible-once-right>
       <ProgressLine title="Tendance du prix du kw/h en centimes" :data="progressLineData"/>
     </div>
   </div>

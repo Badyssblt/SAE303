@@ -10,6 +10,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@vueuse/motion": "^2.2.5",
+    "animejs": "^3.2.2",
     "apexcharts": "^3.53.0",
     "chart.js": "^4.4.4",
     "nuxt": "^3.13.0",

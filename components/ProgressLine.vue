@@ -1,5 +1,7 @@
 <template>
-  <ApexCharts type="area" :options="chartOptions" :series="series" />
+  <client-only>
+    <ApexCharts type="area" :options="chartOptions" :series="series" />
+  </client-only>
 </template>
 
 <script setup>
@@ -35,9 +37,24 @@ const chartOptions = ref({
       enabled: true,
       autoScaleYaxis: true
     },
+    animations: {
+      enabled: true,
+      easing: 'linear',
+      speed: 8000,
+      animateGradually: {
+        enabled: true,
+        delay: 150
+      },
+      dynamicAnimation: {
+        enabled: true,
+        speed: 350
+      }
+    },
+
     toolbar: {
       autoSelected: 'zoom'
-    }
+    },
+
   },
   dataLabels: {
     enabled: false
@@ -81,6 +98,12 @@ const chartOptions = ref({
       }
     }
   }
+});
+
+onMounted(() => {
+  setTimeout(() => {
+    series.value[0].data = [...series.value[0].data]; // Déclenche un nouveau rendu
+  }, 0); // Utiliser un délai de 0 pour forcer le redémarrage de l'animation
 });
 </script>
 
