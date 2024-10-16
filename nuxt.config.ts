@@ -4,6 +4,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
   modules: ['@vueuse/motion/nuxt'],
+  runtimeConfig: {
+    public: {
+      baseURL: process.env.NUXT_BASE_URL === 'production' ? "https://sae303.badyssblilita.fr" : '',
+    }
+  },
   postcss: {
     plugins: {
       tailwindcss: {},

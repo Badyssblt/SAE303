@@ -1,35 +1,30 @@
 <script setup>
-import {ref} from 'vue';
-import {Line} from 'vue-chartjs';
+import { ref } from 'vue';
+import { Pie } from 'vue-chartjs';
 import {
   Chart as ChartJS,
   Title,
   Tooltip,
   Legend,
-  LineElement,
-  PointElement,
-  CategoryScale,
-  LinearScale
+  ArcElement,   // Nécessaire pour les graphiques circulaires
+  CategoryScale
 } from 'chart.js';
 
-ChartJS.register(Title, Tooltip, Legend, LineElement, PointElement, CategoryScale, LinearScale);
+// Enregistrement des composants nécessaires pour le PieChart
+ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale);
 
+// Propriété `data` passée en prop
 const props = defineProps({
   data: {
     type: Object,
     required: true
-  },
-  stepped: {
-    type: Boolean,
-    required: false,
-    default: false
   }
 });
 
+// Options du graphique
 const chartOptions = ref({
   responsive: true,
   maintainAspectRatio: false,
-  stepped: props.stepped,
   plugins: {
     legend: {
       display: true,
@@ -40,8 +35,8 @@ const chartOptions = ref({
 
 <template>
   <div>
-    <Line
-        id="line_chart"
+    <Pie
+        id="pie_chart"
         :options="chartOptions"
         :data="props.data"
     />
